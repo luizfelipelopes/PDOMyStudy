@@ -93,20 +93,38 @@ try {
 
 // Calling a stored procedure with an output parameter
 
+// try {
+
+// 	$stmt = $db->prepare("CALL sp_returns_string(?)");
+// 	$stmt->bindParam(1, $return_value, PDO::PARAM_STR, 4000);
+	
+
+// 	$stmt->execute();
+
+// 	print 'procedure returned: ' . $return_value;
+
+	
+// } catch (PDOException $e) {
+	
+// 	echo 'Failed: ' . $e->getMessage();
+
+// }
+
+/** Use valid of placeholder with LIKE **/
+
 try {
-
-	$stmt = $db->prepare("CALL sp_returns_string(?)");
-	$stmt->bindParam(1, $return_value, PDO::PARAM_STR, 4000);
 	
+	$stmt = $db->prepare("SELECT * FROM users WHERE first_name LIKE ?");
 
-	$stmt->execute();
+	$name = 'Luiz';
 
-	print 'procedure returned: ' . $return_value;
+	$stmt->execute(array('%'.$name.'%'));
 
-	
-} catch (PDOException $e) {
-	
+	while($row = $stmt->fetch()){
+		print_r($row);
+	}
+
+
+} catch (Exception $e) {
 	echo 'Failed: ' . $e->getMessage();
-
 }
-
