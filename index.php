@@ -9,6 +9,8 @@ try {
 	$db = new PDO(INFO_BD['driver'] . ':host=' . INFO_BD['host'] . ';dbname=' . INFO_BD['dbname'], 
 		INFO_BD['user'], INFO_BD['pass'], INFO_BD['attributes']);
 	
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 	echo 'Conected!<br>';
 	
 } catch (PDOException $e) {
