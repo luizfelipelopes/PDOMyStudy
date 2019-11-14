@@ -134,12 +134,11 @@ try {
 // 	echo 'Failed: ' . $e->getMessage();
 // }
 
-try {
+
+/**
+* Errors and error handling
+**/
 	
-	$db->query("SELECT * FROM user");
+$db->query("SELECT * FROM user");
 
-} catch (PDOException $e) {
-
-	echo 'Failed: ' . $e->getMessage();
-}
 
