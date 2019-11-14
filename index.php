@@ -91,5 +91,22 @@ try {
 // }
 
 
+// Calling a stored procedure with an output parameter
 
+try {
+
+	$stmt = $db->prepare("CALL sp_returns_string(?)");
+	$stmt->bindParam(1, $return_value, PDO::PARAM_STR, 4000);
+	
+
+	$stmt->execute();
+
+	print 'procedure returned: ' . $return_value;
+
+	
+} catch (PDOException $e) {
+	
+	echo 'Failed: ' . $e->getMessage();
+
+}
 
