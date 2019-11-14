@@ -22,7 +22,9 @@ try {
 	die("Error!:" . $e->getMessage());
 }
 
-/** Repeated inserts using prepared statements (named placeholders) **/
+/** 
+*	Repeated inserts using prepared statements (named placeholders) 
+**/
 
 // try {
 
@@ -45,7 +47,9 @@ try {
 
 // }
 
-/** Repeated inserts using prepared statements (positional placeholders) **/
+/** 
+* Repeated inserts using prepared statements (positional placeholders) 
+**/
 
 // try {
 
@@ -69,7 +73,9 @@ try {
 // }
 
 
-/** Fetching data using prepared statements **/
+/** 
+* Fetching data using prepared statements 
+**/
 
 // try {
 
@@ -91,7 +97,9 @@ try {
 // }
 
 
-// Calling a stored procedure with an output parameter
+/**
+* Calling a stored procedure with an output parameter
+**/
 
 // try {
 
@@ -110,7 +118,9 @@ try {
 
 // }
 
-/** Use valid of placeholder with LIKE **/
+/** 
+* Use valid of placeholder with LIKE 
+**/
 
 try {
 	
@@ -123,7 +133,6 @@ try {
 	while($row = $stmt->fetch()){
 		print_r($row);
 	}
-
 
 } catch (Exception $e) {
 	echo 'Failed: ' . $e->getMessage();
