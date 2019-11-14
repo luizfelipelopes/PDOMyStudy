@@ -6,5 +6,8 @@ define('INFO_BD', [
 	'host' => 'localhost',
 	'user' => 'root',
 	'pass' => '',
-	'attributes' => [PDO::ATTR_PERSISTENT => true],
+	'attributes' => [
+		PDO::ATTR_PERSISTENT => true,
+		PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING
+	],
 ]);
