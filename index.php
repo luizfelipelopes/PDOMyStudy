@@ -22,6 +22,8 @@ try {
 	die("Error!:" . $e->getMessage());
 }
 
+/** Repeated inserts using prepared statements (named placeholders) **/
+
 // try {
 
 // 	$stmt = $db->prepare("INSERT INTO users (first_name, last_name, genre) VALUES (:fname, :lname, :genre)");
@@ -43,6 +45,7 @@ try {
 
 // }
 
+/** Repeated inserts using prepared statements (positional placeholders) **/
 
 // try {
 
@@ -65,24 +68,28 @@ try {
 
 // }
 
-try {
 
-	$stmt = $db->prepare("SELECT * FROM users WHERE first_name = :fname");
-	$stmt->bindParam(':fname', $name);
-	$name = 'Luiz';
+/** Fetching data using prepared statements **/
 
-	$stmt->execute();
+// try {
 
-	while ($row = $stmt->fetch()){
-		print_r($row);	
-	}
+// 	$stmt = $db->prepare("SELECT * FROM users WHERE first_name = :fname");
+// 	$stmt->bindParam(':fname', $name);
+// 	$name = 'Luiz';
+
+// 	$stmt->execute();
+
+// 	while ($row = $stmt->fetch()){
+// 		print_r($row);	
+// 	}
 
 	
-} catch (PDOException $e) {
+// } catch (PDOException $e) {
 	
-	echo 'Failed: ' . $e->getMessage();
+// 	echo 'Failed: ' . $e->getMessage();
 
-}
+// }
+
 
 
 
