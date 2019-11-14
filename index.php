@@ -22,7 +22,6 @@ try {
 	die("Error!:" . $e->getMessage());
 }
 
-
 try {
 
 	$stmt = $db->prepare("INSERT INTO users (first_name, last_name, genre) VALUES (:fname, :lname, :genre)");
@@ -32,7 +31,7 @@ try {
 	$stmt->bindParam(':genre', $genre);
 
 	$name = 'Maria Fernanda';
-	$lname = 'Cordeiro Lopes';
+	$lName = 'Cordeiro Lopes';
 	$genre = 'f';
 	$stmt->execute();
 
@@ -43,4 +42,7 @@ try {
 	echo 'Failed: ' . $e->getMessage();
 
 }
+
+
+
 
