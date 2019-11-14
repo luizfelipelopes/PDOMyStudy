@@ -23,21 +23,6 @@ try {
 }
 
 
-// try {
-	
-// 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-// 	$db->beginTransaction();
-// 	$db->exec("insert into users (first_name, last_name, genre) values ('Nilma Nayara', 'Neves', 'f')");
-// 	$db->exec("insert into address (user_id, street, number) values (2, 'Rua Antônio Edílio Duarte', '77')");
-// 	$db->commit();
-
-// } catch (Exception $e) {
-	
-// 	$db->rollBack();
-// 	echo 'Failed: ' . $e->getMessage();
-// }
-
 try {
 
 	$stmt = $db->prepare("INSERT INTO users (first_name, last_name, genre) VALUES (:fname, :lname, :genre)");
