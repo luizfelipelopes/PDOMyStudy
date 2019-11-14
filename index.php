@@ -67,8 +67,8 @@ try {
 
 try {
 
-	$stmt = $db->prepare("SELECT * FROM users WHERE first_name = ?");
-	$stmt->bindParam(1, $name);
+	$stmt = $db->prepare("SELECT * FROM users WHERE first_name = :fname");
+	$stmt->bindParam(':fname', $name);
 	$name = 'Luiz';
 
 	$stmt->execute();
