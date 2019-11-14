@@ -22,27 +22,67 @@ try {
 	die("Error!:" . $e->getMessage());
 }
 
+// try {
+
+// 	$stmt = $db->prepare("INSERT INTO users (first_name, last_name, genre) VALUES (:fname, :lname, :genre)");
+
+// 	$stmt->bindParam(':fname', $name);
+// 	$stmt->bindParam(':lname', $lName);
+// 	$stmt->bindParam(':genre', $genre);
+
+// 	$name = 'Maria Fernanda';
+// 	$lName = 'Cordeiro Lopes';
+// 	$genre = 'f';
+// 	$stmt->execute();
+
+// 	var_dump($stmt);
+	
+// } catch (PDOException $e) {
+	
+// 	echo 'Failed: ' . $e->getMessage();
+
+// }
+
+
+// try {
+
+// 	$stmt = $db->prepare("INSERT INTO users (first_name, last_name, genre) VALUES (?, ?, ?)");
+
+// 	$stmt->bindParam(1, $name);
+// 	$stmt->bindParam(2, $lName);
+// 	$stmt->bindParam(3, $genre);
+
+// 	$name = 'Eduardo';
+// 	$lName = 'Brandão';
+// 	$genre = 'm';
+// 	$stmt->execute();
+
+// 	var_dump($stmt);
+	
+// } catch (PDOException $e) {
+	
+// 	echo 'Failed: ' . $e->getMessage();
+
+// }
+
 try {
 
-	$stmt = $db->prepare("INSERT INTO users (first_name, last_name, genre) VALUES (:fname, :lname, :genre)");
+	$stmt = $db->prepare("SELECT * FROM users WHERE first_name = ?");
+	$stmt->bindParam(1, $name);
+	$name = 'Luiz';
 
-	$stmt->bindParam(':fname', $name);
-	$stmt->bindParam(':lname', $lName);
-	$stmt->bindParam(':genre', $genre);
-
-	$name = 'Maria Fernanda';
-	$lName = 'Cordeiro Lopes';
-	$genre = 'f';
 	$stmt->execute();
 
-	var_dump($stmt);
+	while ($row = $stmt->fetch()){
+		print_r($row);	
+	}
+
 	
 } catch (PDOException $e) {
 	
 	echo 'Failed: ' . $e->getMessage();
 
 }
-
 
 
 
