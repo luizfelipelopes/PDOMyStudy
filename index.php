@@ -9,7 +9,7 @@ try {
 	$db = new PDO(INFO_BD['driver'] . ':host=' . INFO_BD['host'] . ';dbname=' . INFO_BD['dbname'], 
 		INFO_BD['user'], INFO_BD['pass'], INFO_BD['attributes']);
 	
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	// $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	echo 'Conected!<br>';
 	
@@ -118,18 +118,28 @@ try {
 * Use valid of placeholder with LIKE 
 **/
 
+// try {
+	
+// 	$stmt = $db->prepare("SELECT * FROM users WHERE first_name LIKE ?");
+
+// 	$name = 'Luiz';
+
+// 	$stmt->execute(array('%'.$name.'%'));
+
+// 	while($row = $stmt->fetch()){
+// 		print_r($row);
+// 	}
+
+// } catch (Exception $e) {
+// 	echo 'Failed: ' . $e->getMessage();
+// }
+
 try {
 	
-	$stmt = $db->prepare("SELECT * FROM users WHERE first_name LIKE ?");
+	$db->query("SELECT * FROM user");
 
-	$name = 'Luiz';
+} catch (PDOException $e) {
 
-	$stmt->execute(array('%'.$name.'%'));
-
-	while($row = $stmt->fetch()){
-		print_r($row);
-	}
-
-} catch (Exception $e) {
 	echo 'Failed: ' . $e->getMessage();
 }
+
