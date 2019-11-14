@@ -4,16 +4,10 @@ require 'Config.php';
 
 echo '<h1>TESTE BD</h1>';
 
-$dbname = 'test';
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$driver = 'mysql';
-
 try {
 
-	$db = new PDO($driver . ':host=' . $host . ';dbname=' . $dbname, $user, $pass, 
-		[PDO::ATTR_PERSISTENT => true]);
+	$db = new PDO(INFO_BD['driver'] . ':host=' . INFO_BD['host'] . ';dbname=' . INFO_BD['dbname'], 
+		INFO_BD['user'], INFO_BD['pass'], INFO_BD['attributes']);
 	
 	echo 'Conected!<br>';
 	
