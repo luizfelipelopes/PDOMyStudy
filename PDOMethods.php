@@ -45,5 +45,14 @@ $sth = $db->exec('UPDATE dessert SET name = "hamburguer"');
 $db->rollBack();
 // $db->commit();
 
+/**
+* PDO::errorCode()
+* PDO::errorInfo()
+**/
+
+$db->exec('INSERT INTO bones (skull) VALUES ("lucy")');
+
+echo '<br>PDO::errorCode: ', $db->errorCode();
+var_dump($db->errorInfo());
 
 
