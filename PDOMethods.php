@@ -69,20 +69,26 @@ try {
 **/
 
 // SQL statement template with named parameters
-$sql = 'SELECT * FROM dessert WHERE name = :name';
-$sth = $db->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-$sth->execute(array(':name' => 'avocato'));
-$result = $sth->fetchAll();
-var_dump($result);
+// $sql = 'SELECT * FROM dessert WHERE name = :name';
+// $sth = $db->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+// $sth->execute(array(':name' => 'avocato'));
+// $result = $sth->fetchAll();
+// var_dump($result);
 
 // SQL statement template with question mark parameters
-$sql = 'SELECT * FROM dessert WHERE name = ?';
-$sth = $db->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-$sth->execute(array('hamburguer'));
-$result = $sth->fetchAll();
-var_dump($result);
+// $sql = 'SELECT * FROM dessert WHERE name = ?';
+// $sth = $db->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+// $sth->execute(array('hamburguer'));
+// $result = $sth->fetchAll();
+// var_dump($result);
 
-
+/**
+* PDO::query()
+**/
+$sql = 'SELECT name FROM dessert WHERE name = "avocato" ORDER BY name';
+foreach($db->query($sql) as $row){
+	print $row['name'] . '<br>';
+}  
 
 
 
