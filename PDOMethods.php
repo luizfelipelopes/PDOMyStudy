@@ -11,7 +11,7 @@ echo '<h1>Methods PDO</h1>';
 
 try {
 
-	$db = new PDO(INFO_BD['driver'] . ':host=' . INFO_BD['host'] . ';dbname=' . INFO_BD['dbname'], 
+	$db = new PDO(INFO_BD['driver'] . ':host=' . INFO_BD['host'] . ';port=' . INFO_BD['port'] . ';dbname=' . INFO_BD['dbname'], 
 		INFO_BD['user'], INFO_BD['pass'], INFO_BD['attributes']);
 
 	echo 'Conected!<br>';
@@ -20,7 +20,6 @@ try {
 	
 	die("Error!:" . $e->getMessage());
 }
-
 
 /**
 * PDO::beginTransaction()

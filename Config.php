@@ -2,8 +2,9 @@
 
 define('INFO_BD', [
 	'driver' => 'mysql',
-	'dbname' => 'test',
 	'host' => 'localhost',
+	'port' => '3306',
+	'dbname' => 'test',
 	'user' => 'root',
 	'pass' => '',
 	'attributes' => [
